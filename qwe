@@ -1,0 +1,160 @@
+using System;
+using System.Collections.Generic;
+
+public class Game
+{
+    public string Title { get; set; }
+    public int ReleaseYear { get; set; }
+
+    // Конструктор 
+    public Game(string title, int releaseYear)
+    {
+        Title = title;
+        ReleaseYear = releaseYear;
+    }
+}
+
+// Класс для коллекции игр
+public class GameCollection
+{
+    private List<Game> games;
+
+    // Конструктор класса GameCollection
+    public GameCollection()
+    {
+        games = new List<Game>();
+    }
+
+    // Метод для добавления новой игры в коллекцию
+    public void AddGame(Game game)
+    {
+        games.Add(game);
+    }
+
+    // Метод для вывода информации обо всех играх в коллекции
+    public void DisplayGames()
+    {
+        if (games.Count == 0)
+        {
+            Console.WriteLine("Коллекция игр пуста.");
+        }
+        else
+        {
+            Console.WriteLine("Информация об играх:");
+
+            foreach (Game game in games)
+            {
+                Console.WriteLine("Название игры: " + game.Title);
+                Console.WriteLine("Год выпуска: " + game.ReleaseYear);
+                Console.WriteLine();
+            }
+        }
+    }
+}
+
+// Главный класс программы
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        // Создание экземпляра класса GameCollection
+        GameCollection gameCollection = new GameCollection();
+
+        // Добавление игр в коллекцию
+        Game game1 = new Game("Diablo 2", 2000);
+        Game game2 = new Game("Lies of P", 2023);
+        Game game3 = new Game("Minecraft", 2011);
+
+        gameCollection.AddGame(game1);
+        gameCollection.AddGame(game2);
+        gameCollection.AddGame(game3);
+
+        // Вывод информации об играх
+        gameCollection.DisplayGames();
+    }
+}
+////////////////////////////////////////////////////
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+
+// Класс фильма
+public class Movie
+{
+    public string Title { get; set; }
+    public int Year { get; set; }
+    public string Director { get; set; }
+
+    // Конструктор класса Movie
+    public Movie(string title, int year, string director)
+    {
+        Title = title;
+        Year = year;
+        Director = director;
+    }
+}
+
+// Класс для коллекции фильмов
+public class MovieCollection
+{
+    private List<Movie> movies;
+
+    // Конструктор класса MovieCollection
+    public MovieCollection()
+    {
+        movies = new List<Movie>();
+    }
+
+    // Метод для добавления нового фильма в коллекцию
+    public void AddMovie(Movie movie)
+    {
+        movies.Add(movie);
+    }
+
+    // Метод для вывода информации обо всех фильмах в коллекции
+    public void DisplayMovies()
+    {
+        if (movies.Count == 0)
+        {
+            Console.WriteLine("Коллекция фильмов пуста.");
+        }
+        else
+        {
+            Console.WriteLine("Информация о фильмах:");
+
+            foreach (Movie movie in movies)
+            {
+                Console.WriteLine("Название фильма: " + movie.Title);
+                Console.WriteLine("Год выпуска: " + movie.Year);
+                Console.WriteLine("Режиссер: " + movie.Director);
+                Console.WriteLine();
+            }
+        }
+    }
+}
+
+// Главный класс программы
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        // Создание экземпляра класса MovieCollection
+        MovieCollection movieCollection = new MovieCollection();
+
+        // Добавление фильмов в коллекцию
+        Movie movie1 = new Movie("Гарри Поттер", 2001, "Дж. К. Роулинг");
+        Movie movie2 = new Movie("Матрица", 1999, "Лана и Лилли Вачовски");
+        Movie movie3 = new Movie("Зелёная миля", 1999, "Фрэнк Дарабонт");
+
+        movieCollection.AddMovie(movie1);
+        movieCollection.AddMovie(movie2);
+        movieCollection.AddMovie(movie3);
+
+        // Вывод информации о фильмах
+        movieCollection.DisplayMovies();
+    }
+}
